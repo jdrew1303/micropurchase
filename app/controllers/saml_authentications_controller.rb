@@ -22,7 +22,6 @@ class SamlAuthenticationsController < ApplicationController
     else
       sp_logout_request
     end
-    reset_session
   end
 
   def setup
@@ -63,6 +62,7 @@ class SamlAuthenticationsController < ApplicationController
       RelayState: params[:RelayState]
     )
     redirect_to logout_response
+    reset_session
   end
 
   def render_logout_error(logout_request)
